@@ -1,0 +1,17 @@
+/*------------------------------------*\
+  Transversal Elements
+  #Styles for texts
+\*------------------------------------*/
+
+
+body {
+  color: $c-text;
+}
+
+h1,
+.h1 {
+    @include font-rem(35px);
+    @include line-height(47px);
+    font-weight: 300;
+    font-weight: bold;
+}

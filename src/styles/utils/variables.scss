@@ -1,0 +1,35 @@
+/*------------------------------------*\
+  Transversal Elements
+  #Styles variables
+\*------------------------------------*/
+
+/* Variables de colores */
+$white: #ffffff;
+$black: #000000;
+
+$c-text: #333333;
+
+$c-primary: #ffad1d;
+$c-secondary: #1cbbb4;
+$c-default: #ebebeb; 
+
+/* Skin */
+$skins: () !default;
+$skins: map-merge((
+  "custom": (
+    "skin-primary-color":      $c-primary,
+    "skin-default-color":      $c-default,
+    "skin-footer-color":       $c-default,
+    "skin-accent":             $c-primary,
+    "skin-sidenav-item":       $c-primary,
+    "skin-sidenav-item-hover": rgba($black, .05),
+    "skin-mask-slight":        rgba($white, .5),
+    "skin-mask-light":         rgba($white, .65),
+    "skin-mask-strong":        rgba($white, .8),
+    "skin-sn-child":           $c-primary,
+    "skin-btn-primary":        $c-primary,
+    "skin-btn-secondary":      $c-secondary,
+    "skin-btn-default":        $c-default,
+    "skin-text":               $c-text
+  )
+), $skins);

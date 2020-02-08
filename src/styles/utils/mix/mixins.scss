@@ -1,0 +1,30 @@
+/*------------------------------------*\
+  Transversal Elements
+  #Styles mixins
+\*------------------------------------*/
+
+/// FontRem: Convierte el valor de px a rem
+/// use: .txt {
+///			@include font-rem(40px);
+///		 }
+/// Resultado: font-size: 2.5rem;
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@mixin font-rem($size) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+}
+
+/// FontRem: Convierte el valor de px a rem
+/// use: .txt {
+///			@include font-rem(53px);
+///		 }
+/// Resultado: line-height: 3.3125rem
+@mixin line-height($size) {
+  line-height: $size; //Fallback in px
+  line-height: calculateRem($size);
+}
