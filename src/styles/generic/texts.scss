@@ -2,10 +2,11 @@
   Transversal Elements
   #Styles for texts
 \*------------------------------------*/
-
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 body {
   color: $c-text;
+  font-family: 'Lato', sans-serif;
 }
 
 h1,
