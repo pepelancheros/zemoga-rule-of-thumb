@@ -4,25 +4,29 @@
       "name":"Kanye West",
       "months":"1 month",
       "area":"Entertainment",
-      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero."
+      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "width":"70%"
     },
     {
       "name":"Mark Zuckerberg",
       "months":"1 month",
       "area":"Business",
-      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero."
+      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "width":"60%"
     },
     {
       "name":"Cristina Fernández de Kirchner",
       "months":"1 month",
       "area":"Politics",
-      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero."
+      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "width":"70%"
     },
     {
       "name":"Malala Youfsafzai",
       "months":"1 month",
       "area":"Entertainment",
-      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero."
+      "description":"Vestibulum diam ante, porttitor a odio eget, rhoncus neque. Aenean eu velit libero.",
+      "width":"70%"
     }
   ]
 }

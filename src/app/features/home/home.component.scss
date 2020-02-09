@@ -111,6 +111,17 @@
     }
   }
 }
+// prueba
+.llenar-color {
+    height: 50px;
+    width: 500px;
+}
+.llenar-color-dentro {
+  background-color: #333333;
+  width: 50%;
+  height: 100%;
+}
+// end prueba
 
 @media (min-width: 768px) {
   .home__main-content{
