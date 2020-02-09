@@ -76,14 +76,14 @@
     top: 44%;
     padding-left: 40px;
     padding-right: 55px;
-    h3 {
+    .info__name {
       font-size: 45px;
       font-weight: 400;
     }
-    small {
+    .info__time {
       font-size: 12px;
     }
-    p {
+    .info__description {
       font-size: 16px;
     }
     .buttons-row {
