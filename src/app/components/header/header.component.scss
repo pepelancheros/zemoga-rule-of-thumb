@@ -1,0 +1,22 @@
+.navbar {
+  a {
+    color: white;
+  }
+  .navbar-brand {
+    font-size: 32px;
+    font-weight: 400;
+  }
+  li {
+    margin: 0 1rem;
+    a{
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    height: 100px;
+  }
+}

@@ -2,3 +2,17 @@
   Transversal Elements
   #Styles for buttons
 \*------------------------------------*/
+
+.btn {
+  border-radius: 0;
+}
+
+.btn-primary {
+  background-color: rgba($c-primary, 0.8);
+  border: none;
+}
+
+.btn-secondary {
+  background-color: rgba($c-secondary, 0.8);
+  border: none;
+}

@@ -1,0 +1,48 @@
+.home__top-banner {
+  .container__img-pope {
+    margin-left: -15px;
+    margin-right: -15px;
+    .img-pope {
+      object-fit: cover;
+      height: 49rem;
+      width: 100%;
+      object-position: top;
+    }
+  }
+  .info-box{
+    position: absolute;
+    top: 200px;
+    .container-blur {
+      backdrop-filter: blur(50px) grayscale(60%);
+      small {
+        font-size: 16px;
+        font-weight: 300;
+      }
+      h3 {
+        font-size: 60px;
+        font-weight: 400;
+      }
+      p {
+        font-size: 21px;
+        font-weight: 300;
+      }
+      a {
+        font-size: 14px;
+        color: white;
+        text-decoration: underline;
+      }
+    }
+    .btn {
+      height: 80px;
+      span {
+        font-size: 35px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .home__top-banner {
+    margin-top: -100px;
+  }
+}
