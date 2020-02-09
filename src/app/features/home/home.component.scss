@@ -1,4 +1,6 @@
+// Top Banner
 .home__top-banner {
+  margin-top: -100px;
   .container__img-pope {
     margin-left: -15px;
     margin-right: -15px;
@@ -32,7 +34,7 @@
         text-decoration: underline;
       }
     }
-    .btn {
+    button {
       height: 80px;
       span {
         font-size: 35px;
@@ -41,8 +43,124 @@
   }
 }
 
+// Text Section
+.container__text {
+  background-color: #ebebeb;
+  p {
+    color: #333333;
+    margin-bottom: 0;
+  }
+  .container__text_1 {
+    p {
+      white-space: nowrap;
+      font-size: 23px;
+      line-height: 1;
+    }
+  }
+  strong {
+    font-size: 38px;
+    font-weight: 700;
+  }
+  .container__text_2 p {
+    font-size: 16px;
+  }
+}
+
+// Main Content / Votes
+.home__main-content {
+  img {
+    width: 100%;
+  }
+  .content__info {
+    position: absolute;
+    top: 44%;
+    padding-left: 40px;
+    padding-right: 55px;
+    h3 {
+      font-size: 45px;
+      font-weight: 400;
+    }
+    small {
+      font-size: 12px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .buttons-row {
+      height: 35px;
+    }
+    .btn-thumb {
+    width: 35px;
+    height: 35px;
+    }
+  }
+  .total-thumb {
+    position: absolute;
+    top: 46%;
+  }
+  .votes-percentage {
+    position: relative;
+    height: 50px;
+    top: -50px;
+    font-size: 30px;
+    .width-64 {
+      width: 64%;
+    }
+    .width-36 {
+      width: 36%;
+    }
+  }
+}
+
 @media (min-width: 768px) {
+  .home__main-content{
+    .container__text{
+      flex-wrap: nowrap;
+    }
+  }
+  @media (max-width: 991px) {
+    .home__main-content {
+      .content__info h3 {
+        font-size: 30px;
+      }
+    }
+  }
+  @media (max-width: 1199px) {
+    .home__main-content {
+      .content__info {
+        top: 36%;
+        transform: translateY(-50%);
+      }
+      .total-thumb {
+        top: 21%;
+      }
+    }
+  }
+}
+
+@media (max-width:767px) {
   .home__top-banner {
-    margin-top: -100px;
+    .info-box {
+      margin-left: -30px;
+    }
+  }
+  .container__text{
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 575px) {
+  .home__main-content {
+    .content__info {
+      top: 50%;
+      transform: translateY(-72%);
+      h3 {
+        font-size: 30px;
+      }
+    }
+    .total-thumb {
+      top: 50%;
+      transform: translateY(-400%);
+    }
   }
 }

@@ -7,12 +7,31 @@
   border-radius: 0;
 }
 
-.btn-primary {
+.btn-primary-custom {
   background-color: rgba($c-primary, 0.8);
   border: none;
+  color: $white ;
 }
 
-.btn-secondary {
+.btn-secondary-custom {
   background-color: rgba($c-secondary, 0.8);
   border: none;
+  color: $white ;
 }
+
+.outline {
+  border: 1px solid $white;
+  background-color: transparent;
+  color: $white;
+  font-size: 14px;
+}
+
+.btn-thumb {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  }

@@ -11,10 +11,11 @@
 @import '~ng-uikit-pro-standard/assets/scss/core/variables-pro';
 @import '~ng-uikit-pro-standard/assets/scss/core/msc/skins-pro';
 
+@import 'styles/layout/layout.scss';
+@import 'styles/layout/footer.scss';
+@import 'styles/layout//header.scss';
+
 @import 'styles/fonts/outline.scss';
 @import 'styles/generic/buttons';
 @import 'styles/generic/forms';
 @import 'styles/generic/texts';
-
-@import 'styles/layout/footer.scss';
-@import 'styles/layout//header.scss';   
