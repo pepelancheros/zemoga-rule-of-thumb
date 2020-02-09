@@ -11,7 +11,8 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    getInfo();    
+    getInfo();  
+    whiteBorder();  
     
   }
 
@@ -26,5 +27,19 @@ function getInfo() {
     name_space[i].innerHTML = person.name;
     time_space[i].innerHTML = person.months + " in " + person.area;
     description_space[i].innerHTML = person.description;
+  }
+}
+
+function whiteBorder() {
+  var button_thumb = document.getElementsByClassName('btn-thumb');
+  for (var i = 0; i < button_thumb.length; i++) {
+    button_thumb[i].addEventListener('click', addBorder);
+  }
+  function addBorder() {
+    if (!this.classList.contains('white-border')){
+      this.classList.add('white-border');
+    } else {
+      this.classList.remove('white-border');
+    }
   }
 }
