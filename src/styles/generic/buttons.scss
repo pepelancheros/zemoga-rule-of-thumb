@@ -12,6 +12,16 @@
   border: none;
   color: $white ;
 }
+.btn-primary-real {
+  &:hover {
+    background-color: darken($color: $c-primary, $amount: 10%);
+  }
+}
+.btn-secondary-real {
+  &:hover {
+    background-color: darken($color: $c-secondary, $amount: 10%);
+  }
+}
 
 .btn-secondary-custom {
   background-color: rgba($c-secondary, 0.8);
