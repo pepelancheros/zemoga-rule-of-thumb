@@ -32,7 +32,6 @@ function getInfo() {
     name_space[i].innerHTML = person.name;
     time_space[i].innerHTML = person.months + " in " + person.area;
     description_space[i].innerHTML = person.description;
-    prueba_color[i].style.width = person.width;
   }
 }
 
@@ -40,7 +39,9 @@ function checkForVote() {
   var btn_upvote = Array.prototype.slice.call(document.getElementsByClassName('thumb-up'));
   var btn_downvote = Array.prototype.slice.call(document.getElementsByClassName('thumb-down'));
   var btn_total = Array.prototype.slice.call(document.getElementsByClassName('btn-vote'));
-  var width_inicial = new Array(data.people.length);
+  var width_positive = new Array(data.people.length).fill(0);
+  var width_negative = new Array(data.people.length).fill(0);
+
   var prueba_color = document.getElementsByClassName('llenar-color-dentro') as HTMLCollectionOf<HTMLElement>;
 
   var local_edit = JSON.parse(localStorage.getItem('localfile'));
@@ -60,9 +61,10 @@ function checkForVote() {
     if (!this.classList.contains('clicked')) {
       this.classList.add('clicked','white-border')
       positive_votes[actual_index]++;
-      // console.log(positive_votes[actual_index]);
-      // console.log(getTotal(actual_index));
-      
+
+      width_positive[actual_index] = getTotal(positive_votes, actual_index)
+      console.log(getTotal(positive_votes, actual_index))
+
       btn_downvote[actual_index].classList.remove('clicked','white-border');
     }
   }
@@ -74,7 +76,9 @@ function checkForVote() {
     if (!this.classList.contains('clicked')) {
       this.classList.add('clicked','white-border')
       negative_votes[actual_index]++;
-      // console.log(negative_votes[actual_index])
+
+      width_negative[actual_index] = getTotal(negative_votes, actual_index)
+      console.log(getTotal(negative_votes, actual_index))
       
       btn_upvote[actual_index].classList.remove('clicked','white-border');
     }
@@ -86,26 +90,18 @@ function checkForVote() {
     var local_negative = localStorage.getItem('localfile-negative');    
     console.log('positive: ', JSON.parse(local_positive));
     console.log('negative: ', JSON.parse(local_negative));
+
     var actual_index = btn_total.indexOf(this);
     btn_downvote[actual_index].classList.remove('clicked','white-border');
     btn_upvote[actual_index].classList.remove('clicked','white-border');
   }
 
-  function getTotal(elem) {
-    // var new_value = local_edit[elem];
-    // var total_sum = 0;
-    // var total_avg = 0;
-    // for (var i = 0; i < btn_upvote.length; i++) {
-    //   total_sum += local_edit[i];
-    // }
-    // total_avg = new_value / total_sum;
+  function getTotal(vote, index) {
+    var new_value = vote[index];
+    var total_avg = 0;
+    
+    total_avg = Math.round((new_value / (positive_votes[index] + negative_votes[index]))*100);
 
-    // return total_avg;
+    return total_avg;
   }
-
-  for (var i=0; i<data.people.length; i++) {
-    var person = data.people[i];
-    width_inicial[i] = person.width;
-  }
-  
 }
