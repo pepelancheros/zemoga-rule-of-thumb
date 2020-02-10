@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
 
 }
 
+//function to get the information from the file data.json
 function getInfo() {
   var name_space = document.getElementsByClassName('info__name');
   var time_space = document.getElementsByClassName('info__time');
@@ -35,6 +36,7 @@ function getInfo() {
   }
 }
 
+//general function for the votations
 function checkForVote() {
   var btn_upvote = Array.prototype.slice.call(document.getElementsByClassName('thumb-up'));
   var btn_downvote = Array.prototype.slice.call(document.getElementsByClassName('thumb-down'));
@@ -42,9 +44,8 @@ function checkForVote() {
   var width_positive = new Array(data.people.length).fill(0);
   var width_negative = new Array(data.people.length).fill(0);
 
-  var prueba_color = document.getElementsByClassName('llenar-color-dentro') as HTMLCollectionOf<HTMLElement>;
-
-  var local_edit = JSON.parse(localStorage.getItem('localfile'));
+  var fill_positive = document.getElementsByClassName('llenar-1') as HTMLCollectionOf<HTMLElement>;
+  var fill_negative = document.getElementsByClassName('llenar-2') as HTMLCollectionOf<HTMLElement>;
 
   for (var i = 0; i < btn_upvote.length; i++) {
     btn_upvote[i].addEventListener('click', upVote);
@@ -52,22 +53,24 @@ function checkForVote() {
     btn_total[i].addEventListener('click', sendVote);
   }
 
+  //function for the positive button
   function upVote() {
     var actual_index = btn_upvote.indexOf(this);
     if(btn_downvote[actual_index].classList.contains('clicked')) {
       negative_votes[actual_index]--;
     }
-    // prueba_color[btn_upvote.indexOf(this)].style.width = '50%';
     if (!this.classList.contains('clicked')) {
       this.classList.add('clicked','white-border')
       positive_votes[actual_index]++;
 
-      width_positive[actual_index] = getTotal(positive_votes, actual_index)
+      
+      
       console.log(getTotal(positive_votes, actual_index))
 
       btn_downvote[actual_index].classList.remove('clicked','white-border');
     }
   }
+  //function for the negative function
   function downVote() {
     var actual_index = btn_downvote.indexOf(this);
     if(btn_upvote[actual_index].classList.contains('clicked')) {
@@ -77,7 +80,7 @@ function checkForVote() {
       this.classList.add('clicked','white-border')
       negative_votes[actual_index]++;
 
-      width_negative[actual_index] = getTotal(negative_votes, actual_index)
+      
       console.log(getTotal(negative_votes, actual_index))
       
       btn_upvote[actual_index].classList.remove('clicked','white-border');
@@ -94,6 +97,11 @@ function checkForVote() {
     var actual_index = btn_total.indexOf(this);
     btn_downvote[actual_index].classList.remove('clicked','white-border');
     btn_upvote[actual_index].classList.remove('clicked','white-border');
+
+    width_positive[actual_index] = getTotal(positive_votes, actual_index);
+    fill_positive[actual_index].style.width = width_positive[actual_index].toString() + "%";
+    width_negative[actual_index] = getTotal(negative_votes, actual_index)
+    fill_negative[actual_index].style.width = width_negative[actual_index].toString() + "%";
   }
 
   function getTotal(vote, index) {
