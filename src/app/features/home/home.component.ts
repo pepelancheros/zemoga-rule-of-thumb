@@ -50,13 +50,17 @@ function checkForVote() {
 
   var fill_positive = document.getElementsByClassName('width-primary') as HTMLCollectionOf<HTMLElement>;
   var fill_negative = document.getElementsByClassName('width-secondary') as HTMLCollectionOf<HTMLElement>;
+  var text_positive = document.getElementsByClassName('p-positive') as HTMLCollectionOf<HTMLElement>;
+  var text_negative = document.getElementsByClassName('p-negative') as HTMLCollectionOf<HTMLElement>;
 
   for (var i = 0; i < btn_upvote.length; i++) {
     btn_upvote[i].addEventListener('click', upVote);
     btn_downvote[i].addEventListener('click', downVote);
     btn_total[i].addEventListener('click', sendVote);
     fill_positive[i].style.width = positive_width_votes[i].toString() + "%";
+    text_positive[i].innerHTML = positive_width_votes[i].toString() + "%";
     fill_negative[i].style.width = negative_width_votes[i].toString() + "%"; 
+    text_negative[i].innerHTML = negative_width_votes[i].toString() + "%";
   }
 
   //function for the positive button
@@ -77,6 +81,7 @@ function checkForVote() {
     positive_width_votes[actual_index] = getTotal(positive_votes, actual_index);
     negative_width_votes[actual_index] = getTotal(negative_votes, actual_index);
   }
+
   //function for the negative function
   function downVote() {
     var actual_index = btn_downvote.indexOf(this);
@@ -94,6 +99,7 @@ function checkForVote() {
     positive_width_votes[actual_index] = getTotal(positive_votes, actual_index);
     negative_width_votes[actual_index] = getTotal(negative_votes, actual_index);
   }
+
   //function to vote and apply changes to the elements
   function sendVote() {
     //generate the local files with the data updated
@@ -108,14 +114,18 @@ function checkForVote() {
     console.log('positive votes: ', JSON.parse(local_positive));
     console.log('negative votes: ', JSON.parse(local_negative));
 
+    //take out the white borders in the buttons
     var actual_index = btn_total.indexOf(this);
     btn_downvote[actual_index].classList.remove('clicked','white-border');
     btn_upvote[actual_index].classList.remove('clicked','white-border');
 
-    //asign the width of the containers
+    //asign the width and text of the percentage containers
     fill_positive[actual_index].style.width = positive_width_votes[actual_index].toString() + "%";
+    text_positive[actual_index].innerHTML = positive_width_votes[actual_index].toString() + "%";
     fill_negative[actual_index].style.width = negative_width_votes[actual_index].toString() + "%";
+    text_negative[actual_index].innerHTML = negative_width_votes[actual_index].toString() + "%";
   }
+
   //function to get the percentage of the votes
   function getTotal(vote, index) {
     var new_value = vote[index];
