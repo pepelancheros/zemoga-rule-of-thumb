@@ -13,7 +13,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     getInfo();  
-    whiteBorder();  
     checkForVote();
   }
 
@@ -30,20 +29,6 @@ function getInfo() {
     time_space[i].innerHTML = person.months + " in " + person.area;
     description_space[i].innerHTML = person.description;
     prueba_color[i].style.width = person.width;
-  }
-}
-
-function whiteBorder() {
-  var button_thumb = document.getElementsByClassName('btn-thumb');
-  for (var i = 0; i < button_thumb.length; i++) {
-    button_thumb[i].addEventListener('click', addBorder);
-  }
-  function addBorder() {
-    if (!this.classList.contains('white-border')){
-      this.classList.add('white-border');
-    } else {
-      this.classList.remove('white-border');
-    }
   }
 }
 
@@ -64,20 +49,33 @@ function checkForVote() {
 
   function upVote() {
     // prueba_color[btn_upvote.indexOf(this)].style.width = '50%';
-    var actual_index = btn_upvote.indexOf(this);
-    local_edit[actual_index]++;
-    console.log(local_edit[actual_index])
-    localStorage.setItem('localfile', JSON.stringify(local_edit));
+    if (!this.classList.contains('clicked')) {
+      this.classList.add('clicked','white-border')
+      console.log('ya tiene la clase');
+      var actual_index = btn_upvote.indexOf(this);
+      local_edit[actual_index]++;
+      console.log(local_edit[actual_index])
+      localStorage.setItem('localfile', JSON.stringify(local_edit));
+      btn_downvote[actual_index].classList.remove('clicked','white-border');
+    }
   }
   function downVote() {
-    var actual_index = btn_downvote.indexOf(this);
-    local_edit[actual_index]--;
-    console.log(local_edit[actual_index])
-    localStorage.setItem('localfile', JSON.stringify(local_edit));
+    if (!this.classList.contains('clicked')) {
+      this.classList.add('clicked','white-border')
+      console.log('ya tiene la clase el down');
+      var actual_index = btn_downvote.indexOf(this);
+      local_edit[actual_index]--;
+      console.log(local_edit[actual_index])
+      localStorage.setItem('localfile', JSON.stringify(local_edit));
+      btn_upvote[actual_index].classList.remove('clicked','white-border');
+    }
   }
   function sendVote() {
     var local = localStorage.getItem('localfile');
     console.log('retrievedObject: ', JSON.parse(local))
+    var actual_index = btn_total.indexOf(this);
+    btn_downvote[actual_index].classList.remove('clicked','white-border');
+    btn_upvote[actual_index].classList.remove('clicked','white-border');
   }
 
   for (var i=0; i<data.people.length; i++) {
