@@ -111,17 +111,6 @@
     }
   }
 }
-// prueba
-.llenar-color {
-    height: 50px;
-    width: 500px;
-}
-.llenar-color-dentro {
-  background-color: #00ff22;
-  width: 50%;
-  height: 100%;
-}
-// end prueba
 
 @media (min-width: 768px) {
   .home__main-content{
@@ -170,7 +159,11 @@
     .content__info {
       top: 50%;
       transform: translateY(-72%);
-      .content__info {
+      line-height: 1;
+      padding-right: 15px;
+      line-height: 1.3;
+      font-size: 24px;
+      .info__name {
         font-size: 30px;
       }
     }
